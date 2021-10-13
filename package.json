@@ -1,0 +1,35 @@
+{
+  "name": "kulalike",
+  "version": "1.0.0",
+  "description": "kula-like web",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "concurrently \"nodemon index.js\" \"npm start --prefix app-client\"",
+    "git": "git add . && git commit -m \"updated\" && git push origin main",
+    "rebuild-client": "rm -rf build && npm i --prefix app-client && npm run build --prefix app-client && mv app-client/build/ build",
+    "heroku": "npm run rebuild-client && npm run git && git push heroku main"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gurelbs/kulalike.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gurelbs/kulalike/issues"
+  },
+  "homepage": "https://github.com/gurelbs/kulalike#readme",
+  "devDependencies": {
+    "concurrently": "^6.3.0",
+    "nodemon": "^2.0.13"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "engines": {
+    "node": "14.x"
+  }
+}
