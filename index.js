@@ -1,6 +1,8 @@
 import express from 'express';
-import path from 'path';
+import path, { dirname } from 'path';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 const app = express();
 const prod = process.env.NODE_ENV === 'production'
 const PORT = process.env.PORT || 4000;
