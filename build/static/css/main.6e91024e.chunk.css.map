@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack://src/custom-theme-style/custom-theme.css"],"names":[],"mappings":"AACA,iFACE,kCAA2B,CAA3B,0BACF","file":"main.6e91024e.chunk.css","sourcesContent":["/* custom-rtl for theme */\r\n.MuiTablePagination-actions,.css-1wbgkc2-MuiStack-root,.css-e53awj-MuiStack-root{\r\n  flex-direction: row-reverse;\r\n}"]}
