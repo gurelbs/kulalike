@@ -10,9 +10,16 @@ const { MONGO_URI } = process.env
 
 mongooseConnect(MONGO_URI)
 
+if (prod){
+  app.use(express.static('build'));
+  app.get('/*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
+  });
+}
 app.use(express.json())
 app.use(cors({ origin: '*' }))
 app.use(express.urlencoded({ extended: true }))
 app.use(api)
 app.use((req, res) => res.status(404).send('404'))
+
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`))
