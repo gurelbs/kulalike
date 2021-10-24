@@ -2,11 +2,10 @@
   "name": "kulalike",
   "version": "1.0.0",
   "description": "kula-like web",
-  "type": "module",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "concurrently \"nodemon index.js\" \"npm start --prefix app-client\"",
+    "dev": "concurrently --kill-others --max-http-header-size=16384 \"nodemon index.js\" \"npm start --prefix app-client\"",
     "git": "git add . && git commit -m \"updated\" && git push origin main",
     "rebuild-client": "rm -rf build && npm i --prefix app-client && npm run build --prefix app-client && mv app-client/build/ build",
     "heroku": "npm run rebuild-client && npm run git && git push heroku main"
@@ -27,7 +26,19 @@
     "nodemon": "^2.0.13"
   },
   "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "firebase-admin": "^10.0.0",
+    "google-auth-library": "^7.10.1",
+    "http-proxy-middleware": "^2.0.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.0.11",
+    "mongoose-findorcreate": "^3.0.0",
+    "passport": "^0.5.0",
+    "passport-auth0": "^1.4.1",
+    "passport-google-oauth20": "^2.0.0",
+    "passport-local-mongoose": "^6.1.0",
     "path": "^0.12.7",
     "url": "^0.11.0"
   },
