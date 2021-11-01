@@ -1,6 +1,7 @@
 require('dotenv').config()
 const express = require('express')
 const cors = require('cors')
+const path = require('path')
 const mongooseConnect = require('./utils/mongooseConnect.js')
 const api = require('./api')
 const app = express()
