@@ -28,4 +28,8 @@ admin.initializeApp({
 	}),
 })
 
-module.exports = admin
+const messaging = admin.messaging();
+module.exports = {
+	admin,
+	messaging,
+}

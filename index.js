@@ -10,11 +10,11 @@ const { MONGO_URI } = process.env
 
 mongooseConnect(MONGO_URI)
 
-if (prod){
-  app.use(express.static('build'));
-  app.get('/*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
-  });
+if (prod) {
+	app.use(express.static('build'))
+	app.get('/*', (req, res) => {
+		res.sendFile(path.resolve(__dirname, 'build', 'index.html'))
+	})
 }
 app.use(express.json())
 app.use(cors({ origin: '*' }))

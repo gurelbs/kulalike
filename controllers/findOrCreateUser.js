@@ -21,7 +21,7 @@ const User = new model('User', userSchema)
 
 async function findOrCreateUser(req, res, next) {
 	try {
-		const { email, email_verified, name } = req.user
+		const { uid, email, name, email_verified } = req.user
 		if (email_verified) {
 			await User.findOne({ email }).exec(async (err, user) => {
 				if (err) {
@@ -41,6 +41,7 @@ async function findOrCreateUser(req, res, next) {
 			})
 		}
 	} catch (error) {
+		console.log(error)
 		res.send({
 			error: 'אירעה שגיאה במערכת',
 		})
