@@ -4,10 +4,9 @@ const projectsRoute = require('./projects/projectsRoute');
 const {Router} = require('express');
 const api = Router();
 
-const appUse = func => api.use('/api', func);
+api.use('/api', authLogin);
+api.use('/api', usersRoute);
+api.use('/api', projectsRoute);
 
-appUse(authLogin);
-appUse(usersRoute);
-appUse(projectsRoute);
 
 module.exports = api;
