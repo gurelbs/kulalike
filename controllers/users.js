@@ -26,7 +26,7 @@ async function all(req, res) {
 		// })
 		return res.status(200).send({ users })
 	} catch (err) {
-		return handleError(res, err)
+		return console.log(err)
 	}
 }
 
@@ -36,7 +36,7 @@ async function get(req, res) {
 		const user = await admin.auth().getUser(id)
 		return res.status(200).send({ user })
 	} catch (err) {
-		return handleError(res, err)
+		return console.log(err)
 	}
 }
 
@@ -53,7 +53,7 @@ async function patch(req, res) {
 		await admin.auth().setCustomUserClaims(id, { role })
 		return res.status(204).send({ user })
 	} catch (err) {
-		return handleError(res, err)
+		return console.log(err)
 	}
 }
 
@@ -63,7 +63,7 @@ async function remove(req, res) {
 		await admin.auth().deleteUser(id)
 		return res.status(204).send({})
 	} catch (err) {
-		return handleError(res, err)
+		return console.log(err)
 	}
 }
 
