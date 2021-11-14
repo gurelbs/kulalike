@@ -1,30 +1,23 @@
-// const mongoose = require('mongoose');
+const mongoose = require('mongoose');
+
 // function getAllUsers(req, res) {
 //   mongoose.model('User').find({}, (err, users) => {
 //     if (err) {
 //       res.send(err);
 //     }
-//     res.json(users);
+//     res.json({users});
 //   });
 // }
 const { admin } = require('./firebase-service')
 
 async function all(req, res) {
 	try {
-		const {users} = await admin.auth().listUsers()
-		// const users = listUsers.users.map(user => {
-		// 	const customClaims = user.customClaims || { role: '' } || { role: '' }
-		// 	const role = customClaims.role ? customClaims.role : ''
-		// 	return {
-		// 		uid: user.uid,
-		// 		email: user.email,
-		// 		displayName: user.displayName,
-		// 		role,
-		// 		lastSignInTime: user.metadata.lastSignInTime,
-		// 		creationTime: user.metadata.creationTime,
-		// 	}
-		// })
-		return res.status(200).send({ users })
+		mongoose.model('User').find({}, (err, users) => {
+			if (err) {
+				res.send(err);
+			}
+			res.json({users});
+		});
 	} catch (err) {
 		return console.log(err)
 	}
